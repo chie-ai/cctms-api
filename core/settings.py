@@ -107,8 +107,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'campuscovid19trackingmanagementsystem',
-        'HOST': 'postgres',
-        'PORT': '5432',
+        # 'HOST': 'postgres',
+        'HOST': 'localhost',
+        # 'PORT': '5432',
+        'PORT': '',
         'USER': 'capstone',
         'PASSWORD': 'campuscovid19trackingmanagementsystem_secretpassword',
     }

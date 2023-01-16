@@ -1,4 +1,5 @@
 Django>=3.0,<4.0
+python-decouple==3.7
 psycopg2>=2.8
 django-oauth2-provider==0.2.6.1
 djangorestframework==3.12.2

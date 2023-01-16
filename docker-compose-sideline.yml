@@ -3,7 +3,7 @@ version: "3"
 services:
   postgres:
     image: postgres:11.1-alpine
-    container_name: bnhs_cctms_database
+    container_name: bnhs_cctms_db
     volumes:
       - bnhs_cctms_db:/var/lib/postgresql/data
     env_file:
@@ -12,7 +12,7 @@ services:
       - "5432"
   backend:
     build: .
-    container_name: bnhs_cctms_backend
+    container_name: bnhs_cctms_be
     command: python manage.py runserver 0.0.0.0:8000
     # command: gunicorn --bind 0.0.0.0:8000 core.wsgi:application timeout 60
     ports:
