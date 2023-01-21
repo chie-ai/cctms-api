@@ -106,14 +106,18 @@ class UserNumber(TimeStampedModel):
     def __str__(self):
         return str(self.user_number)
 
+from random import randrange
 def update_filename(self, filename):
     path = 'profile/'
     main_path = '/home/project/backend/cctms/mediafiles/profile/'
     ext = filename.split('.')[-1]
-    filename = "%s.%s" % (self.user, ext)
-    print(os.path.isfile(os.path.join(main_path, filename)))
-    if os.path.isfile(os.path.join(main_path, filename)):
-        os.remove(os.path.join(main_path, filename))
+    filename = "%s%s.%s" % (self.user, randrange(500), ext)
+
+    for suffix in range(501):
+        remove_filename = "%s%s.%s" % (self.user, suffix, ext)
+        if os.path.isfile(os.path.join(main_path, remove_filename)):
+            os.remove(os.path.join(main_path, remove_filename))
+            break
 
     return os.path.join(path, filename)
 

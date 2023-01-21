@@ -281,7 +281,7 @@ class GetUserCovid19History(ListAPIView):
     permission_classes = [IsAuthenticated, TokenHasReadWriteScope]
 
     serializer_class = CovidCaseRecordSerializer
-    
+
     def get_queryset(self):
         user_id = self.request.query_params['user_id']
         return CovidCaseRecord.objects.filter(user_id=user_id).order_by('-created_at')
