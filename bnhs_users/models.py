@@ -47,7 +47,7 @@ class BNHSUser(AbstractBaseUser):
         (HEALTH_CARE_STAFF, HEALTH_CARE_STAFF),
         (DJANGO_ADMIN, DJANGO_ADMIN)
     )
-  
+
     MALE = 'male'
     FEMALE = 'female'
 
@@ -109,7 +109,7 @@ class UserNumber(TimeStampedModel):
 from random import randrange
 def update_filename(self, filename):
     path = 'profile/'
-    main_path = '/home/project/backend/cctms/mediafiles/profile/'
+    main_path = '/home/project/backend/cctms-backend/mediafiles/profile/'
     ext = filename.split('.')[-1]
     filename = "%s%s.%s" % (self.user, randrange(500), ext)
 

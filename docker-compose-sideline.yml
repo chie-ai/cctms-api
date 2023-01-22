@@ -3,7 +3,7 @@ version: "3"
 services:
   postgres:
     image: postgres:11.1-alpine
-    container_name: bnhs_cctms_db
+    container_name: bnhs_cctms_database_data
     volumes:
       - bnhs_cctms_db:/var/lib/postgresql/data
     env_file:
@@ -12,7 +12,7 @@ services:
       - "5432"
   backend:
     build: .
-    container_name: bnhs_cctms_be
+    container_name: bnhs_cctms_backend_data
     command: python manage.py runserver 0.0.0.0:8000
     # command: gunicorn --bind 0.0.0.0:8000 core.wsgi:application timeout 60
     ports:
@@ -23,8 +23,8 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - static_volume:/home/project/backend/cctms/static
-      - media_volume:/home/project/backend/cctms/media
+      - static_volume:/home/project/backend/cctms-backend/static
+      - media_volume:/home/project/backend/cctms-backend/mediafiles
     ports:
       - 80:80
     restart: "on-failure"
